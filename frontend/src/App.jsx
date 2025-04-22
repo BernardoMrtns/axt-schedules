@@ -1,21 +1,14 @@
-import { useEffect } from 'react';
-import { api } from './services/api';
+import { useState } from 'react';
+import CalendarPage from './pages/CalendarPage';
+import ServicePage from './pages/ServicePage';
 
 function App() {
-  useEffect(() => {
-    api.get('/')
-      .then((res) => {
-        console.log('API OK:', res.data);
-      })
-      .catch((err) => {
-        console.error('Erro na API:', err);
-      });
-  }, []);
+  const [agendamentos, setAgendamentos] = useState([]);
 
   return (
     <div>
-      <h1>Agendamentos AXT</h1>
-      <p>Aplicação conectada ao backend!</p>
+      <CalendarPage setAgendamentos={setAgendamentos} />
+      <ServicePage agendamentos={agendamentos} />
     </div>
   );
 }
