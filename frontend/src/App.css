@@ -1,415 +1,130 @@
-body {
-  margin: 0;
-  background-color: #ffffff; /* Fundo branco no modo claro */
-  color: #000000; /* Texto preto */
-  font-family: 'Roboto', sans-serif; /* Fonte profissional */
-  font-size: 16px; /* Tamanho base */
-  line-height: 1.5; /* Melhor legibilidade */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --tooltip-bg: #fff;
+  --tooltip-color: #333;
+  --tooltip-border: 1px solid #ccc;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #242424; /* Fundo escuro no modo escuro */
-    color: #ffffff; /* Texto branco */
-  }
-}
-
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  background-color: inherit; /* Herda o fundo do body */
-  min-height: 100vh; /* Garante que o conteúdo ocupe toda a altura */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-/* Light mode (default styles) */
-.react-calendar {
-  width: 100%;
-  max-width: 600px;
-  background: #ffffff; /* Calendário branco */
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: 0px 0px 8px rgba(77, 77, 77, 0.1);
-  color: #000; /* Letras pretas */
-}
-
-.react-calendar__tile {
-  color: #000000; /* Letras pretas para todos os dias */
-}
-
-/* Fim de semana vermelho */
-.react-calendar__tile--weekend {
-  color: #e53935 !important; /* Vermelho para sábados e domingos */
-}
-
-.highlight {
-  background-color: #1976d2 !important; /* Azul do título */
-  color: #ffffff !important; /* Texto branco */
-  border-radius: 50%; /* Deixa o destaque circular */
-}
-
-/* Destaque para dias selecionados */
-.react-calendar__tile--active {
-  background-color: #1976d2 !important; /* Azul com bom contraste */
-  color: #ffffff !important; /* Texto branco */
-  border-radius: 50%; /* Circular */
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra para destaque */
-}
-
-@media (prefers-color-scheme: dark) {
-  .react-calendar__tile--active {
-    background-color: #90caf9 !important; /* Azul claro no modo escuro */
-    color: #000000 !important; /* Texto preto */
-  }
-}
-
-/* Light mode styles */
-body {
-  background-color: #ffffff; /* Fundo branco */
-  color: #000000; /* Texto preto */
-}
-
-/* Dark mode styles */
-@media (prefers-color-scheme: dark) {
-  .react-calendar {
-    background: #333; /* Fundo escuro */
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
-    color: #ffffff; /* Letras brancas */
-  }
-
-  .react-calendar__tile {
-    color: #ffffff; /* Letras brancas para todos os dias */
-  }
-
-  .react-calendar__tile--weekend {
-    color: #ff6f61 !important; /* Vermelho claro para sábados e domingos */
-  }
-
-  .highlight {
-    background-color: #ffffff !important; /* Destaque branco */
-    color: #000 !important; /* Texto preto no destaque */
-  }
-}
-
-/* Dark mode styles */
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #333333; /* Fundo escuro */
-    color: #ffffff; /* Texto branco */
-  }
+.dark {
+  --tooltip-bg: #374151;
+  --tooltip-color: #fff;
+  --tooltip-border: 1px solid #4b5563;
 }
 
 /* Custom styles for the calendar */
 .custom-calendar {
   width: 100%;
   max-width: 600px;
-  border-radius: 10px;
+  border-radius: 0.5rem;
   padding: 1rem;
-  box-shadow: 0px 0px 8px rgba(77, 77, 77, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-family: "Roboto", sans-serif;
 }
 
 /* Light mode styles */
 .custom-calendar {
-  background: #ffffff; /* Calendário branco */
-  color: #000000; /* Letras pretas */
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #e5e7eb;
 }
 
 .custom-calendar .react-calendar__tile {
-  color: #000000; /* Letras pretas para todos os dias */
+  color: #000000;
+  padding: 0.75rem 0.5rem;
+  border-radius: 0.25rem;
 }
 
 .custom-calendar .react-calendar__tile--weekend {
-  color: #e53935 !important; /* Vermelho para sábados e domingos */
+  color: #ef4444 !important;
 }
 
 .custom-calendar .highlight {
-  background-color: #1976d2 !important; /* Azul do título */
-  color: #ffffff !important; /* Texto branco */
-  border-radius: 50%; /* Deixa o destaque circular */
+  background-color: #3b82f6 !important;
+  color: #ffffff !important;
+  border-radius: 50%;
+}
+
+.custom-calendar .react-calendar__tile--active {
+  background-color: #3b82f6 !important;
+  color: #ffffff !important;
+  border-radius: 50%;
+}
+
+.custom-calendar .react-calendar__navigation {
+  margin-bottom: 1rem;
+}
+
+.custom-calendar .react-calendar__navigation button {
+  min-width: 44px;
+  background: none;
+  border-radius: 0.25rem;
+  color: #000000;
+}
+
+.custom-calendar .react-calendar__navigation button:enabled:hover,
+.custom-calendar .react-calendar__navigation button:enabled:focus {
+  background-color: #f3f4f6;
+}
+
+.custom-calendar .react-calendar__month-view__weekdays {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.custom-calendar .react-calendar__month-view__days__day--neighboringMonth {
+  color: #9ca3af;
+}
+
+.custom-calendar .react-calendar__tile:enabled:hover,
+.custom-calendar .react-calendar__tile:enabled:focus {
+  background-color: #f3f4f6;
+  border-radius: 0.25rem;
 }
 
 /* Dark mode styles */
-@media (prefers-color-scheme: dark) {
-  .custom-calendar {
-    background: #3b3b3b; /* Fundo escuro */
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
-    color: #ffffff; /* Letras brancas */
-  }
-
-  .custom-calendar .react-calendar__tile {
-    color: #ffffff; /* Letras brancas para todos os dias */
-  }
-
-  .custom-calendar .react-calendar__tile--weekend {
-    color: #ff0000 !important; /* Vermelho claro para sábados e domingos */
-  }
-
-  .custom-calendar .highlight {
-    background-color: #ffffff !important; /* Destaque branco */
-    color: #000000 !important; /* Texto preto no destaque */
-  }
+.dark .custom-calendar {
+  background: #1f2937;
+  color: #ffffff;
+  border: 1px solid #374151;
 }
 
-/* Estilo do contêiner principal */
-.calendar-container {
-  background-color: #ffffff; /* Fundo branco no modo claro */
-  border-radius: 10px;
-  padding: 2rem;
-  box-shadow: 0px 0px 8px rgba(77, 77, 77, 0.1);
-  transition: background-color 0.3s, color 0.3s;
+.dark .custom-calendar .react-calendar__tile {
+  color: #ffffff;
 }
 
-/* Modo escuro */
-@media (prefers-color-scheme: dark) {
-  .calendar-container {
-    background-color: #333333; /* Fundo escuro no modo escuro */
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
-    color: #ffffff; /* Texto branco */
-  }
+.dark .custom-calendar .react-calendar__tile--weekend {
+  color: #f87171 !important;
 }
 
-/* Tabs container */
-.tabs {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
+.dark .custom-calendar .highlight {
+  background-color: #3b82f6 !important;
+  color: #ffffff !important;
 }
 
-.tabs button {
-  padding: 0.5rem 1rem;
-  margin: 0 0.5rem;
-  border: none;
-  border-bottom: 2px solid transparent;
-  background: #f9f9f9; /* Fundo claro padrão */
-  color: #000; /* Texto preto padrão */
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+.dark .custom-calendar .react-calendar__navigation button {
+  color: #ffffff;
 }
 
-.tabs button:hover {
-  background: #e3f2fd; /* Azul claro no hover */
-  color: #1976d2; /* Azul escuro no hover */
+.dark .custom-calendar .react-calendar__navigation button:enabled:hover,
+.dark .custom-calendar .react-calendar__navigation button:enabled:focus {
+  background-color: #374151;
 }
 
-.tabs button.active {
-  background: #1976d2; /* Fundo azul para aba ativa */
-  color: #fff; /* Texto branco para aba ativa */
-  font-weight: bold;
+.dark .custom-calendar .react-calendar__month-view__days__day--neighboringMonth {
+  color: #6b7280;
 }
 
-/* Dark mode styles for tabs */
-@media (prefers-color-scheme: dark) {
-  .tabs button {
-    background: #444; /* Fundo escuro padrão */
-    color: #fff; /* Texto branco padrão */
-  }
-
-  .tabs button:hover {
-    background: #555; /* Fundo mais claro no hover */
-    color: #90caf9; /* Azul claro no hover */
-  }
-
-  .tabs button.active {
-    background: #1976d2; /* Fundo azul para aba ativa */
-    color: #fff; /* Texto branco para aba ativa */
-  }
+.dark .custom-calendar .react-calendar__tile:enabled:hover,
+.dark .custom-calendar .react-calendar__tile:enabled:focus {
+  background-color: #374151;
 }
 
-/* Tab content */
-.tab-content {
-  text-align: center;
-  padding: 2rem;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0px 0px 8px rgba(77, 77, 77, 0.1);
-}
-
-@media (prefers-color-scheme: dark) {
-  .tab-content {
-    background-color: #333333;
-    color: #ffffff;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
-  }
-}
-
-/* Modal styles */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal-content {
-  background: #ffffff; /* Fundo branco no modo claro */
-  padding: 2rem;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 500px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.modal-content h3 {
-  margin-top: 0;
-  color: #1976d2; /* Azul do título */
-}
-
-.modal-content form label {
-  display: block;
-  margin-bottom: 1rem;
-  color: #000; /* Texto preto no modo claro */
-}
-
-.modal-content form input,
-.modal-content form select {
-  width: 100%;
-  padding: 0.5rem;
-  margin-top: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background: #f9f9f9; /* Fundo claro */
-  color: #000; /* Texto preto */
-}
-
-.modal-content form button {
-  margin-right: 1rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.modal-content form button[type='submit'] {
-  background: #1976d2; /* Azul do botão */
-  color: #fff; /* Texto branco */
-}
-
-.modal-content form button[type='button'] {
-  background: #ccc; /* Fundo cinza claro */
-  color: #000; /* Texto preto */
-}
-
-/* Dark mode styles for modal */
-@media (prefers-color-scheme: dark) {
-  .modal-content {
-    background: #333333; /* Fundo escuro */
-    color: #ffffff; /* Texto branco */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  }
-
-  .modal-content form label {
-    color: #ffffff; /* Texto branco */
-  }
-
-  .modal-content form input,
-  .modal-content form select {
-    background: #444444; /* Fundo escuro para inputs */
-    color: #ffffff; /* Texto branco */
-    border: 1px solid #555555; /* Borda mais clara */
-  }
-
-  .modal-content form button[type='submit'] {
-    background: #1976d2; /* Azul do botão */
-    color: #ffffff; /* Texto branco */
-  }
-
-  .modal-content form button[type='button'] {
-    background: #555555; /* Fundo cinza escuro */
-    color: #ffffff; /* Texto branco */
-  }
-}
-
-/* Estilo para a tabela */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1rem 0;
-  font-size: 1rem;
-  text-align: left;
-}
-
-table th, table td {
-  border: 1px solid #ddd;
-  padding: 0.75rem;
-}
-
-table th {
-  background-color: #f4f4f4;
-  font-weight: bold;
-}
-
-table tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-table tr:hover {
-  background-color: #f1f1f1;
-}
-
-table td button {
-  margin-right: 0.5rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-table td button:first-of-type {
-  background-color: #1976d2;
-  color: #fff;
-}
-
-table td button:last-of-type {
-  background-color: #e53935;
-  color: #fff;
+.dark .custom-calendar .react-calendar__tile--active {
+  background-color: #3b82f6 !important;
+  color: #ffffff !important;
 }
